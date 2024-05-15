@@ -19,7 +19,7 @@ void linkedList::insertNode(Node *node)
     Node *temp = this->head;
 
     // start insertion
-    if (temp->getHashEntry().getValue() >= node->getHashEntry().getValue())
+    if (temp->getHashEntry().getKey() >= node->getHashEntry().getKey())
     {
         this->head->previos = node;
         node->next = this->head;
@@ -29,7 +29,7 @@ void linkedList::insertNode(Node *node)
     }
     // end insertion
     temp = this->tail;
-    if (this->tail->getHashEntry().getValue() <= node->getHashEntry().getValue())
+    if (this->tail->getHashEntry().getKey() <= node->getHashEntry().getKey())
     {
         this->tail->next = node;
         node->previos = this->tail;
@@ -42,7 +42,7 @@ void linkedList::insertNode(Node *node)
     Node *temp2 = temp->next;
     while (temp->next != NULL)
     {
-        if (temp->next->getHashEntry().getValue() >= node->getHashEntry().getValue())
+        if (temp->next->getHashEntry().getKey() >= node->getHashEntry().getKey())
         {
             node->previos = temp;
             temp->next = node;
