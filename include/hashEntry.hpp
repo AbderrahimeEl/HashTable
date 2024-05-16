@@ -1,18 +1,19 @@
 #ifndef HASHENTRY_HPP
 #define HASHENTRY_HPP
-#include <iostream>
-using namespace std;
 
+template <typename Type>
 class HashEntry
 {
     int k;
-    int v;
+    Type v;
 
 public:
-    HashEntry(int k, int v);
+    HashEntry(int k, Type v);
     HashEntry();
     int getKey();
-    int getValue();
+    Type getValue();
 };
 
-#endif
+#include "../src/hashEntry.tpp"
+
+#endif // HASHENTRY_HPP

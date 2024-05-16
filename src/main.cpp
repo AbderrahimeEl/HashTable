@@ -1,23 +1,37 @@
 #include <iostream>
-using namespace std;
+#include <string>
 #include "../include/hashEntry.hpp"
 #include "../include/hashTable.hpp"
 
+using namespace std;
 
-int main()
-{
-    HashTable ht(10);
-    ht.ht_insert(10, 100);
-    ht.ht_insert(23, 200);
-    ht.ht_insert(11, 200);
-    ht.ht_insert(90, 2220);
-    ht.ht_insert(91, 220);
-    ht.ht_insert(20, 400);
-    ht.ht_insert(33, 400);
-    ht.ht_insert(63, 400);
-    ht.ht_insert(55, 20);
-    ht.ht_insert(59, 20);
-    cout << "Hash Table:" << endl;
-    ht.display();
+int main() {
+    // Hash table for integers
+    HashTable<int> intTable(10);
+    intTable.ht_insert(10, 42);
+    intTable.ht_insert(23, 84);
+    intTable.ht_insert(26, 84);
+    intTable.ht_insert(23, 84);
+    cout << "\n\nHash Table (int):" << endl;
+    intTable.display();
+    
+    // Hash table for strings
+    HashTable<string> stringTable(10);
+    stringTable.ht_insert(10, "hello");
+    stringTable.ht_insert(23, "world");
+    stringTable.ht_insert(23, "world");
+    stringTable.ht_insert(25, "world");
+    cout << "\n\nHash Table (string):\n" ;;
+    stringTable.display();
+
+    // Hash table for characters
+    HashTable<char> charTable(10);
+    charTable.ht_insert(10, 'a');
+    charTable.ht_insert(23, 'b');
+    charTable.ht_insert(23, 'c');
+    charTable.ht_insert(25, 'd');
+    cout <<"\n\nHash Table (char):\n";
+    charTable.display();
+
     return 0;
 }

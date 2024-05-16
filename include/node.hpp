@@ -1,18 +1,21 @@
 #ifndef NODE_HPP
 #define NODE_HPP
+
 #include "hashEntry.hpp"
 
+template <typename Type>
 class Node
 {
-    HashEntry H;
+    HashEntry<Type> H;
+
 public:
     Node *next;
     Node *previos;
-    Node(HashEntry h);
-    HashEntry getHashEntry();
-    void setHashEntry(HashEntry H);
-
-public:
+    Node(HashEntry<Type> h);
+    HashEntry<Type> getHashEntry();
+    void setHashEntry(HashEntry<Type> H);
 };
 
-#endif
+#include "../src/node.tpp"
+
+#endif // NODE_HPP

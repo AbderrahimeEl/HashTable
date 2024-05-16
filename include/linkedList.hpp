@@ -3,14 +3,18 @@
 
 #include "node.hpp"
 
+template <typename Type>
 class linkedList
 {
 public:
-    Node *head;
-    Node *tail;
+    Node<Type> *head;
+    Node<Type> *tail;
     int size;
     linkedList();
-    void insertNode(Node *node);
+    void insertNode(Node<Type> *node);
     void display();
 };
-#endif
+
+#include "../src/linkedList.tpp"
+
+#endif // LINKEDLIST_HPP

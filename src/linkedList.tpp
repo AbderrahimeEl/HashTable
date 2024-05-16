@@ -1,13 +1,15 @@
 #include "../include/linkedList.hpp"
 
-linkedList::linkedList()
+template <typename Type>
+linkedList<Type>::linkedList()
 {
     this->head = nullptr;
     this->tail = nullptr;
     this->size = 0;
 }
 
-void linkedList::insertNode(Node *node)
+template <typename Type>
+void linkedList<Type>::insertNode(Node<Type> *node)
 {
     if (this->size == 0)
     {
@@ -16,7 +18,7 @@ void linkedList::insertNode(Node *node)
         this->size++;
         return;
     }
-    Node *temp = this->head;
+    Node<Type> *temp = this->head;
 
     // start insertion
     if (temp->getHashEntry().getKey() >= node->getHashEntry().getKey())
@@ -39,8 +41,8 @@ void linkedList::insertNode(Node *node)
     }
     // middle insertion
     temp = this->head;
-    Node *temp2 = temp->next;
-    while (temp->next != NULL)
+    Node<Type> *temp2 = temp->next;
+    while (temp->next != nullptr)
     {
         if (temp->next->getHashEntry().getKey() >= node->getHashEntry().getKey())
         {
@@ -52,19 +54,20 @@ void linkedList::insertNode(Node *node)
             return;
         }
         temp = temp->next;
-        if (temp != NULL)
+        if (temp != nullptr)
             temp2 = temp->next;
     }
 }
 
-void linkedList::display()
+template <typename Type>
+void linkedList<Type>::display()
 {
-    Node *temp;
+    Node<Type> *temp;
     temp = this->head;
-    printf("\tsize = %d\telemnets :", this->size);
-    while (temp != NULL)
+    std::printf("\tsize = %d\telements: ", this->size);
+    while (temp != nullptr)
     {
-        printf("(%d , %d)   ", temp->getHashEntry().getKey(), temp->getHashEntry().getValue());
+        std::cout<<"("<<temp->getHashEntry().getKey()<<" , "<< temp->getHashEntry().getValue()<<") ";
         temp = temp->next;
     }
 }
