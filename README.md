@@ -1,6 +1,6 @@
 # Hash Table with Double Linked List Collision Handling
 
-This project implements a hash table data structure that uses double linked lists to handle collisions. The hash table provides efficient key-value storage and retrieval operations with constant-time average-case performance.
+This project implements a hash table data structure that uses double linked lists to handle collisions. The hash table provides efficient key-value storage and retrieval operations with constant-time average-case performance. Additionally, the project uses templates for data types, allowing for flexible and type-safe storage of various data types.
 <p align="center">
 <img src="docs/shema.png" width="800" alt="Alt Text">
 </p>
@@ -30,33 +30,22 @@ To use the hash table implementation, follow these steps:
    ./bin/output
    ```
 
-Here's an example usage:
+### example usage:
 
 ```cpp
-HashTable ht(10);
-    ht.ht_insert(10, 100);
-    ht.ht_insert(23, 200);
-    ht.ht_insert(11, 200);
-    ht.ht_insert(90, 2220);
-    ht.ht_insert(91, 220);
-    ht.ht_insert(20, 400);
-    ht.ht_insert(33, 400);
-    ht.ht_insert(63, 400);
-    ht.ht_insert(55, 20);
-    ht.ht_insert(59, 20);
-    cout << "Hash Table:" << endl;
-    ht.display();
+HashTable<string> stringTable(10);
+    stringTable.ht_insert(10, "hello");
+    stringTable.ht_insert(23, "world");
+    stringTable.ht_insert(23, "world");
+    stringTable.ht_insert(25, "world");
+    cout << "\n\nHash Table (string):\n" ;;
+    stringTable.display();
 ```
 
-## output : 
-
-Hash Table: <br>
-index = 0       size = 3     elemnets :(10 , 100)   (20 , 400)   (90 , 2220)   
-
-index = 1       size = 2     elemnets :(11 , 200)   (91 , 220)   
-
-index = 3       size = 3     elemnets :(23 , 200)   (33 , 400)   (63 , 400)   
-
-index = 5       size = 1     elemnets :(55 , 20)   
-
-index = 9       size = 1     elemnets :(59 , 20)   
+### output : 
+```
+Hash Table (string):
+index = 0       size = 1        elements: (10 , hello) 
+index = 3       size = 2        elements: (23 , world) (23 , world) 
+index = 5       size = 1        elements: (25 , world)
+```
